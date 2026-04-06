@@ -203,6 +203,17 @@ header.scrolled .mobile-nav-buttons .menu-toggle-btn {
 .mobile-main-nav {
   width: 100%;
   max-width: 450px;
+
+  max-height: calc(100vh - 140px); /* 預留上方 Logo(約60px) 與下方邊界的高度 */
+  overflow-y: auto;                /* 當項目超過最大高度時，變成可以上下滑動 */
+  padding: 10px 0;                 /* 給上下加點留白，滑動時比較好看 */
+
+  -ms-overflow-style: none;        /* 適用於 IE / Edge */
+  scrollbar-width: none;           /* 適用於 Firefox */
+}
+
+.mobile-main-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .mobile-main-nav ul {
