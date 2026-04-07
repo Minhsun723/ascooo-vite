@@ -1,5 +1,6 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import HomePage      from './pages/HomePage'
 import AnimationPage from './pages/AnimationPage'
 import GamesPage     from './pages/GamesPage'
@@ -67,6 +68,7 @@ export default function App() {
         {/* 其他路徑導回首頁 */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <SpeedInsights />
     </BrowserRouter>
   )
 }
