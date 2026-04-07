@@ -1,5 +1,6 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import HomePage      from './pages/HomePage'
 import AnimationPage from './pages/AnimationPage'
 import GamesPage     from './pages/GamesPage'
@@ -30,6 +31,7 @@ function LangRoutes({ prefix }) {
 export default function App() {
   return (
     <BrowserRouter>
+      <SpeedInsights />
       <Routes>
         {/* 繁體中文（根路徑） */}
         <Route path="/"           element={<HomePage />} />
