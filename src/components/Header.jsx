@@ -8,6 +8,7 @@ export default function Header({ onMenuOpen }) {
   const [scrolled, setScrolled] = useState(false)
   const [langMenuOpen, setLangMenuOpen] = useState(false)
   const [mobileLangOpen, setMobileLangOpen] = useState(false)
+  const [musicMenuOpen, setMusicMenuOpen] = useState(false)
   const langSwitcherRef = useRef(null)
   const mobileLangRef = useRef(null)
   const navigate = useNavigate()
@@ -60,13 +61,40 @@ export default function Header({ onMenuOpen }) {
         {/* 桌面版導覽 */}
         <ul className="desktop-nav">
           {navLinks.map(link => (
-            <li key={link.key}>
-              {link.external ? (
-                <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
-              ) : (
-                <NavLink to={link.to}>{link.label}</NavLink>
-              )}
-            </li>
+            link.key === 'music' ? (
+              <li
+                key={link.key}
+                className="music-dropdown-wrapper"
+                onMouseEnter={() => setMusicMenuOpen(true)}
+                onMouseLeave={() => setMusicMenuOpen(false)}
+              >
+                <NavLink to={link.to}>
+                  {link.label}
+                </NavLink>
+                <ul className={`music-dropdown-menu${musicMenuOpen ? ' show' : ''}`}>
+                  <li>
+                    <NavLink to={link.to} onClick={() => setMusicMenuOpen(false)}>
+                      {t.nav.musicDropdown.works}
+                    </NavLink>
+                  </li>
+                  <li>
+                    {/* ↓ 可自行修改連結 */}
+                    <a href="https://resonance.ascooo.com" target="_blank" rel="noreferrer" onClick={() => setMusicMenuOpen(false)}>
+                      {t.nav.musicDropdown.external}
+                      <i className="fas fa-external-link-alt music-external-icon" />
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            ) : (
+              <li key={link.key}>
+                {link.external ? (
+                  <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+                ) : (
+                  <NavLink to={link.to}>{link.label}</NavLink>
+                )}
+              </li>
+            )
           ))}
 
           {/* 桌面版語言切換 */}
