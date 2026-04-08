@@ -228,7 +228,8 @@ header.scrolled .mobile-nav-buttons .menu-toggle-btn {
   transform: translateY(20px);
 }
 
-.mobile-main-nav a {
+.mobile-main-nav a,
+.mobile-main-nav .mobile-music-label {
   color: #333;
   text-decoration: none;
   font-size: 1.8rem;
@@ -237,6 +238,79 @@ header.scrolled .mobile-nav-buttons .menu-toggle-btn {
   display: block;
 }
 
+
+/* --- 手機版音樂子選單 --- */
+.mobile-music-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-music-row .mobile-music-label {
+  flex: 1;
+}
+
+.mobile-music-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 1rem;
+  padding: 10px 0 10px 15px;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+/* 新增：讓裡面的圖示負責旋轉動畫 */
+.mobile-music-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.mobile-music-toggle.open {
+  color: #e60012;
+}
+
+/* 新增：只有在 open 時，旋轉裡面的圖示 */
+.mobile-music-toggle.open i {
+  transform: rotate(180deg);
+}
+
+.mobile-music-submenu {
+  list-style: none;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.mobile-music-submenu.open {
+  max-height: 200px;
+}
+
+.mobile-music-submenu li {
+  margin: 0 !important;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.mobile-music-submenu li a {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #555;
+  padding: 8px 0 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-left: 2px solid #ddd;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.mobile-music-submenu li a:hover {
+  color: #e60012;
+  border-left-color: #e60012;
+}
 @keyframes menuItemFadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -625,6 +699,70 @@ footer {
 .page-top-btn.show { opacity: 1; visibility: visible; }
 .page-top-btn:hover { background-color: #000; }
 .page-top-btn i { font-size: 1rem; margin-bottom: 2px; }
+
+/* --- 音樂下拉選單 --- */
+.music-dropdown-wrapper {
+  position: relative;
+}
+
+.music-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: rgba(255,255,255,0.98);
+  backdrop-filter: blur(10px);
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+  min-width: 160px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  pointer-events: none;
+}
+
+.music-dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.music-dropdown-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.music-dropdown-menu li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #333 !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 11px 18px;
+  border-bottom: 2px solid transparent;
+  text-shadow: none !important;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  white-space: nowrap;
+  margin-left: 0;
+}
+
+.music-dropdown-menu li a:hover {
+  color: #e60012 !important;
+  border-bottom-color: #e60012;
+}
+
+.music-external-icon {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
 
 /* --- 桌面版語言選單 --- */
 .language-switcher {
