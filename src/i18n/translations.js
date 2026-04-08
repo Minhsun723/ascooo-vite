@@ -6,6 +6,10 @@ export const translations = {
       animation: '動畫',
       games: '遊戲',
       music: '音樂',
+      musicDropdown: {
+        works: '音樂作品',
+        external: 'RESONANCE',
+      },
       events: '活動',
       about: '關於我們',
       contact: '聯絡資訊',
@@ -42,13 +46,17 @@ export const translations = {
       animation: 'Animation',
       games: 'Games',
       music: 'Music',
+      musicDropdown: {
+        works: 'Release',
+        external: 'RESONANCE',
+      },
       events: 'Events',
       about: 'About Us',
       contact: 'Contact',
       shop: 'Shop',
     },
     hero: {
-      text: 'Under Maintenance...',
+      text: '',
     },
     showcase: {
       viewAll: 'View All',
@@ -78,13 +86,17 @@ export const translations = {
       animation: 'アニメーション',
       games: 'ゲーム',
       music: 'ミュージック',
+      musicDropdown: {
+        works: 'リリース',
+        external: 'RESONANCE',
+      },
       events: 'イベント',
       about: '私たちについて',
       contact: 'お問い合わせ',
       shop: 'ストア', // 日文版沒有購物連結
     },
     hero: {
-      text: 'メンテナンス中...',
+      text: '',
     },
     showcase: {
       viewAll: 'すべて見る',
