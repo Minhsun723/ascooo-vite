@@ -50,12 +50,12 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="footer-logos">
-          <a href="#" target="_blank" rel="noreferrer">
+          <Link to={`${prefix}/`}>
             <img src="/images/logo_black_cut.svg" alt="My Brand Logo" className="logo-main" />
-          </a>
-          <a href="#" target="_blank" rel="noreferrer">
+          </Link>
+          <Link to={`${prefix}/`}>
             <img src="/images/ascooo_black_cut.svg" alt="Partner Logo" className="logo-partner" />
-          </a>
+          </Link>
         </div>
         <div className="copyright">
           <p>{t.footer.copyright}</p>
