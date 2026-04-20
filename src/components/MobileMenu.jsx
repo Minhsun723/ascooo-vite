@@ -27,7 +27,21 @@ export default function MobileMenu({ isOpen, onClose }) {
   return (
     <div className={`mobile-menu-panel${isOpen ? ' active' : ''}`}>
       <Link to={`${prefix}/`} className="logo mobile-menu-logo" onClick={handleClose}>
-        <img src="/images/logo_black_cut.svg" alt="公司品牌Logo (深色)" style={{ height: '100%', position: 'static' }} />
+        {/* 寬度大於 768px 展開選單時：顯示原本的長版深色 Logo */}
+        <img 
+          src="/images/logo_black_cut.svg" 
+          alt="公司品牌Logo (深色)" 
+          className="desktop-logo"
+          style={{ height: '100%', position: 'static' }} 
+        />
+
+        {/* 寬度小於 768px 展開選單時：顯示短版深色 Logo */}
+        <img 
+          src="/images/logo_black_cut_crop.png" 
+          alt="短版Logo (深色)" 
+          className="mobile-logo"
+          style={{ height: '100%', position: 'static' }} 
+        />
       </Link>
 
       <button className="menu-close-btn" aria-label={t.mobileMenu.close} onClick={handleClose}>

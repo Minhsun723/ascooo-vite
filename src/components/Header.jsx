@@ -54,8 +54,13 @@ export default function Header({ onMenuOpen }) {
       <nav>
         {/* Logo */}
         <Link to={`${prefix}/`} className="logo">
-          <img src="/images/logo_white_cut.svg" alt="公司品牌Logo (淺色)" className="logo-initial" />
-          <img src="/images/logo_black_cut.svg" alt="公司品牌Logo (深色)" className="logo-scrolled" />
+          {/* 電腦版：原本較長的 Logo */}
+          <img src="/images/logo_white_cut.svg" alt="公司品牌Logo (淺色)" className="logo-initial desktop-logo" />
+          <img src="/images/logo_black_cut.svg" alt="公司品牌Logo (深色)" className="logo-scrolled desktop-logo" />
+
+          {/* 手機版：新的短版 Logo */}
+          <img src="/images/logo_white_cut_crop.png" alt="短版Logo (淺色)" className="logo-initial mobile-logo" />
+          <img src="/images/logo_black_cut_crop.png" alt="短版Logo (深色)" className="logo-scrolled mobile-logo" />
         </Link>
 
         {/* 桌面版導覽 */}

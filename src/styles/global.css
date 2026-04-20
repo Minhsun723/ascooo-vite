@@ -72,15 +72,30 @@ header nav {
 
 .logo img {
   height: 100%;
-  width: auto;
+  /* width: auto;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0; */
   transition: opacity 0.4s ease-in-out;
 }
 
-.logo .logo-initial { opacity: 1; }
-.logo .logo-scrolled { opacity: 0; }
+/* 讓第一張圖撐開 .logo 容器寬度 */
+.logo .logo-initial {
+  position: relative;
+  opacity: 1;
+}
+
+/* 讓第二張圖疊在第一張上面即可 */
+.logo .logo-scrolled {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.logo .mobile-logo {
+  display: none;
+}
 
 header.scrolled .logo .logo-initial { opacity: 0; }
 header.scrolled .logo .logo-scrolled { opacity: 1; }
@@ -884,7 +899,7 @@ header.scrolled .language-toggle-btn {
 }
 
 /* --- RWD --- */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1174px) {
   header { padding: 15px 30px; }
   .desktop-nav { display: none; }
   .mobile-nav-buttons { display: flex; }
@@ -912,4 +927,11 @@ header.scrolled .language-toggle-btn {
   .card-title { font-size: 0.8rem; }
   .page-top-btn { right: 20px; }
   .hero-slide video { object-fit: cover; }
+  /* 在小螢幕時：隱藏電腦版長 Logo，顯示手機版短 Logo */
+  .logo .desktop-logo {
+    display: none;
+  }
+  .logo .mobile-logo {
+    display: block; 
+  }
 }
